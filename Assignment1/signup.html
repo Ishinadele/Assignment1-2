@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e80f74e3;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #c9140bf9;
+      padding: 10px 0;
+      box-sizing: border-box;
+      z-index: 2;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    nav li {
+      margin-right: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 16px;
+      transition: color 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #7a3e5f;
+    }
+
+    .container {
+      background-color: #d96281;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .form-group input,
+    .form-group select {
+      flex-basis: 45%;
+      width: 100%;
+      padding: 6px;
+      box-sizing: border-box;
+      margin-bottom: 6px;
+    }
+
+    button {
+      background-color: #f20b0b;
+      color: #fff;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 12px;
+    }
+
+    button:hover {
+      background-color: #6a120a;
+    }
+
+    .switch-form {
+      margin-top: 15px;
+    }
+
+    .switch-form p {
+      margin: 0;
+    }
+
+    .switch-form a {
+      color: #7a3e5f;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .switch-form a:hover {
+      text-decoration: underline;
+    }
+
+    .error-message {
+      color: #fff700a9;
+      font-size: 18px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="land.html">Home</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <div class="container" id="signupForm">
+    <h2>Sign Up</h2>
+    <div class="form-group">
+      <input type="text" id="firstName" placeholder="First Name">
+      <select id="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <input type="text" id="lastName" placeholder="Last Name">
+      <input type="date" id="dob" placeholder="Date of Birth">
+    </div>
+
+    <div class="form-group">
+      <input type="text" id="address" placeholder="Address">
+      <input type="tel" id="contact" placeholder="Contact">
+    </div>
+
+    <div class="form-group">
+      <input type="email" id="email" placeholder="Email">
+      <input type="text" id="position" placeholder="Position">
+    </div>
+
+    <div class="form-group">
+      <input type="text" id="department" placeholder="Department">
+      <input type="password" id="password" placeholder="Password">
+    </div>
+
+    <button onclick="signup()">Sign Up</button>
+
+    <div class="switch-form">
+      <p>Already have an account? <a href="#" onclick="toggleForm('login')">Login</a></p>
+    </div>
+
+    
+    <div class="error-message" id="firstNameError"></div>
+    <div class="error-message" id="emailError"></div>
+    <div class="error-message" id="passwordError"></div>
+  </div>
+
+  <script>
+    function toggleForm(formType) {
+      if (formType === 'login') {
+        window.location.href = 'login.html';
+      }
+    }
+
+    function signup() {
+      
+      var firstName = document.getElementById('firstName').value;
+      var email = document.getElementById('email').value;
+      var password = document.getElementById('password').value;
+
+      
+      if (firstName.trim() === '') {
+        document.getElementById('firstNameError').innerHTML = 'Please enter your first name';
+        return;
+      } else {
+        document.getElementById('firstNameError').innerHTML = '';
+      }
+
+      
+      if (email.trim() === '') {
+        document.getElementById('emailError').innerHTML = 'Please enter your email';
+        return;
+      } else {
+        document.getElementById('emailError').innerHTML = '';
+      }
+
+      
+      if (password.trim() === '') {
+        document.getElementById('passwordError').innerHTML = 'Please enter your password';
+        return;
+      } else {
+        document.getElementById('passwordError').innerHTML = '';
+      }
+      alert('Sign Up button clicked!');
+    }
+  </script>
+</body>
+
+</html>
